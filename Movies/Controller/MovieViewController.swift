@@ -21,7 +21,7 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var actorsMovie: UILabel!
     @IBOutlet weak var plotMovie: UILabel!
     @IBOutlet weak var loadMovieIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var favoriteOutlet: UIButton!
+
     
     var loadMovie : Movie?
     
@@ -32,26 +32,10 @@ class MovieViewController: UIViewController {
     }
 
     
-    @IBAction func SearchMovie(_ sender: Any) {
-        let search = UIAlertController(title: "Search Movie", message: "Enter the title", preferredStyle: .alert)
-        search.addTextField {(textField) in
-            textField.placeholder = "title"
-            textField.keyboardType = .decimalPad
+    @IBAction func saveFavoriteButton(_ sender: Any) {
+        if loadMovie != nil {
+            DBManager.saveMovie(loadMovie!)
         }
-        let searchAction = UIAlertAction(title: "Search", style: .default) { (action) in
-            if search.textFields != nil {
-                let textField = search.textFields![0] as UITextField
-                if textField.text != nil {
-                    self.searchMovie(title: textField.text!)
-                }
-            }
-        }
-        let cancelSearch = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-        }
-        search.addAction(searchAction)
-        search.addAction(cancelSearch)
-        
-        self.present(search, animated: true, completion: nil)
     }
     
     func searchMovie (title: String) {
@@ -76,10 +60,26 @@ class MovieViewController: UIViewController {
         }
     }
     
-    @IBAction func favoriteButton(_ sender: UIButton) {
-        if loadMovie != nil {
-            DBManager.saveMovie(loadMovie!)
+    @IBAction func movieSearchButton(_ sender: UIButton) {
+        let search = UIAlertController(title: "Search Movie", message: "Enter the title", preferredStyle: .alert)
+        search.addTextField {(textField) in
+            textField.placeholder = "title"
+            textField.keyboardType = .decimalPad
         }
+        let searchAction = UIAlertAction(title: "Search", style: .default) { (action) in
+            if search.textFields != nil {
+                let textField = search.textFields![0] as UITextField
+                if textField.text != nil {
+                    self.searchMovie(title: textField.text!)
+                }
+            }
+        }
+        let cancelSearch = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        }
+        search.addAction(searchAction)
+        search.addAction(cancelSearch)
+        
+        self.present(search, animated: true, completion: nil)
     }
     
     
@@ -93,7 +93,6 @@ class MovieViewController: UIViewController {
         ratingsMovie.isHidden = isHidden
         actorsMovie.isHidden = isHidden
         plotMovie.isHidden = isHidden
-        favoriteOutlet.isHidden = isHidden
     }
     
 

@@ -64,15 +64,15 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yDk-Lv-EFF">
                                 <rect key="frame" x="188.5" y="456.5" width="37" height="37"/>
                             </activityIndicatorView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJh-47-9ef">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJh-47-9ef">
                                 <rect key="frame" x="0.0" y="777" width="414" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="TF7-2z-zqh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Favorite"/>
+                                <state key="normal" title="Search"/>
                                 <connections>
-                                    <action selector="favoriteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oGk-y3-2qE"/>
+                                    <action selector="movieSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oGk-y3-2qE"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directors" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXv-9B-Xmb">
@@ -124,9 +124,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie" id="SQ2-Fn-5wa">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="search" id="gon-NP-qUX">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="save" id="gon-NP-qUX">
                             <connections>
-                                <action selector="SearchMovie:" destination="BYZ-38-t0r" id="jAw-Ib-Eha"/>
+                                <action selector="saveFavoriteButton:" destination="BYZ-38-t0r" id="jAw-Ib-Eha"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="star.fill" catalog="system" style="plain" id="pXD-WI-A0P">
@@ -139,7 +139,6 @@
                         <outlet property="actorsMovie" destination="FSL-CL-i7q" id="BMf-rk-MWt"/>
                         <outlet property="countryMovie" destination="w2E-e9-IVx" id="0W9-za-rO4"/>
                         <outlet property="directorMovie" destination="UXv-9B-Xmb" id="Qqk-pP-SQQ"/>
-                        <outlet property="favoriteOutlet" destination="gJh-47-9ef" id="yHj-iK-WcI"/>
                         <outlet property="genreMovie" destination="XVC-jh-jlC" id="ZrA-08-3zi"/>
                         <outlet property="loadMovieIndicator" destination="yDk-Lv-EFF" id="U4O-vh-cy6"/>
                         <outlet property="plotMovie" destination="oB3-Vh-ssp" id="gg9-jR-zDf"/>

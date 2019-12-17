@@ -19,11 +19,10 @@ class Movie : Object, Codable {
    @objc dynamic var Plot : String = ""
    @objc dynamic var Director : String = ""
    @objc dynamic var Actors : String = ""
-   @objc dynamic var imdbID : String = ""
    @objc dynamic var Genre : String = ""
    @objc dynamic var imdbRating : String = ""
 
-    convenience init(Poster: String, Title : String, Year : String, Country : String, Runtime : String, Plot : String, Director : String, Actors : String, Genre : String, imdbRating : String, imdbID : String){
+    convenience init(Poster: String, Title : String, Year : String, Country : String, Runtime : String, Plot : String, Director : String, Actors : String, Genre : String, imdbRating : String){
         self.init()
         self.Poster = Poster
         self.Title = Title
@@ -33,7 +32,6 @@ class Movie : Object, Codable {
         self.Plot = Plot
         self.Director = Director
         self.Actors = Actors
-        self.imdbID = imdbID
         self.Genre = Genre
         self.imdbRating = imdbRating
     }
@@ -48,7 +46,6 @@ class Movie : Object, Codable {
         Plot = data["Plot"] as! String
         Director = data["Director"] as! String
         Actors = data["Actors"] as! String
-        imdbID = data["imdbID"] as! String
         Genre = data["Genre"] as! String
         imdbRating = data["imdbRating"] as! String
 
